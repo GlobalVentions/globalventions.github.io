@@ -44,8 +44,33 @@ $(function () {
             }
         });
     }
-    if ($('.owl-most-popular').length) {
-        $('.owl-most-popular').owlCarousel({
+    /* JS Code for video slider */
+    if ($('.owl-featured-today').length) {
+        $('.owl-featured-today').owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 6500,
+            smartSpeed: 1000,
+            loop: true,
+            center: true,
+            nav: true,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2,
+                    margin: 30
+                },
+                992: {
+                    items: 2,
+                    margin: 80
+                }
+            }
+        });
+    }
+    if ($('.owl-career-opportunities').length) {
+        $('.owl-career-opportunities').owlCarousel({
             autoplay: true,
             autoplayTimeout: 6500,
             smartSpeed: 1000,
@@ -543,6 +568,12 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $.get("pro-header.html", function(data) {
+        $("#pro-header").html(data);
+    });
+});
+
 /* Js code for include footer file */
 $(document).ready(function(){
     $.get("footer.html", function(data) {
@@ -550,7 +581,71 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $.get("pro-footer.html", function(data) {
+        $("#pro-footer").html(data);
+    });
+});
+
 /* Toggle Image Change Code */
 $(".LikeToggler").click(function() {
     $(this).find('img').toggle();
+});
+
+/* JS code for hide show link your bank form */
+$(document).ready(function(){
+    $(".stepsDivs .DivStepDiv").each(function(e) {
+        if (e != 0)
+            $(this).hide();
+    });
+
+    $("#next-form").click(function(){
+        if ($(".stepsDivs .DivStepDiv:visible").next().length != 0)
+            $(".stepsDivs .DivStepDiv:visible").next().show().prev().hide();
+        else {
+            $(".stepsDivs .DivStepDiv:visible").hide();
+            $(".stepsDivs .DivStepDiv:first").show();
+        }
+        return false;
+    });
+
+    $("#prev-form").click(function(){
+        if ($(".stepsDivs .DivStepDiv:visible").prev().length != 0)
+            $(".stepsDivs .DivStepDiv:visible").prev().show().next().hide();
+        else {
+            $(".stepsDivs .DivStepDiv:visible").hide();
+            $(".stepsDivs .DivStepDiv:last").show();
+        }
+        return false;
+    });
+    $("#next-form-1").click(function(){
+        if ($(".stepsDivs .DivStepDiv:visible").next().length != 0)
+            $(".stepsDivs .DivStepDiv:visible").next().show().prev().hide();
+        else {
+            $(".stepsDivs .DivStepDiv:visible").hide();
+            $(".stepsDivs .DivStepDiv:first").show();
+        }
+        return false;
+    });
+
+    $("#prev-form-1").click(function(){
+        if ($(".stepsDivs .DivStepDiv:visible").prev().length != 0)
+            $(".stepsDivs .DivStepDiv:visible").prev().show().next().hide();
+        else {
+            $(".stepsDivs .DivStepDiv:visible").hide();
+            $(".stepsDivs .DivStepDiv:last").show();
+        }
+        return false;
+    });
+});
+
+/* JS code for hide show div based on checkbox in Global Sign Up Page*/
+$(function () {
+    $("#chkPassport").click(function () {
+        if ($(this).is(":checked")) {
+            $("#dvPassport").show();
+        } else {
+            $("#dvPassport").hide();
+        }
+    });
 });

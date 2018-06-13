@@ -165,6 +165,11 @@ html, body {
   }
 }
 
+.dropdownarrow-show {
+  background: url(../images/icon/chevron-inactive.mediumGray@1x.png) no-repeat right 6px;
+  background-position: bottom;
+}
+
 .bg-tech-grey {
   background-color: $techgrey !important;
 }
@@ -246,6 +251,11 @@ html, body {
 .heading6-bold-10-13 {
   font-family: $OpenSans-bold !important;
   font-size: 10px !important;
+}
+
+.heading6-regular {
+  font-family: $FibraOneAlt-Heavy !important;
+  font-size: 18px;
 }
 
 .heading6-regular-10-13 {
@@ -348,7 +358,7 @@ html, body {
 .header-menu-text {
   font-family: $FibraOne-Bold;
   font-size: 17px;
-  padding: 15px 20px;
+  padding: 15px 0;
 }
 
 .body-link-3 {
@@ -374,6 +384,37 @@ html, body {
     -moz-border-radius: 50px;
   }
 
+}
+
+ul.what-you-get {
+  list-style: none;
+}
+
+ul.what-you-get li {
+  line-height: 35px;
+}
+
+.health-guru-heading {
+  font-size: 2.4rem;
+}
+
+ul.what-you-get li:before {
+  content: "\2714\0020";
+}
+
+ul.member-benifits-ul {
+  list-style: none;
+}
+
+ul.member-benifits-ul li {
+  line-height: 35px;
+  font-size: 12px;
+}
+
+ul.member-benifits-ul li:before {
+  content: "\2714\0020";
+  padding-right: 20px;
+  font-size: 18px;
 }
 
 .link-bank-modal-body {
@@ -498,6 +539,7 @@ html, body {
       -webkit-border-radius: 50px;
       -moz-border-radius: 50px;
       font-size: 20px;
+      cursor: pointer;
     }
   }
   .btn-primary-link-btn-goto-account {
@@ -753,6 +795,8 @@ html, body {
   padding: 1.6rem 1.8rem !important;
   cursor: pointer;
   width: 100%;
+  box-shadow: 0 0 25px 0 rgba(250, 209, 54, 0.8);
+  -webkit-box-shadow: 0 0 25px 0 rgba(250, 209, 54, 0.8);
   .btn-arrow {
     position: absolute;
     bottom: 33px;
@@ -792,7 +836,7 @@ html, body {
   [type="radio"]:checked + label,
   [type="radio"]:not(:checked) + label {
     position: relative;
-    padding-left: 28px;
+    padding-left: 35px;
     cursor: pointer;
     line-height: 20px;
     display: inline-block;
@@ -804,8 +848,8 @@ html, body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 22px;
-    height: 22px;
+    width: 23px;
+    height: 23px;
     border: 1px solid $color_Silver;
     border-radius: 100%;
     background: $color_white;
@@ -813,13 +857,67 @@ html, body {
   [type="radio"]:checked + label:after,
   [type="radio"]:not(:checked) + label:after {
     content: '';
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     background: $brightsidepurple;
     position: absolute;
     top: 4px;
     left: 4px;
     border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  [type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.custom-radio-bba-box {
+  [type="radio"]:checked,
+  [type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="radio"]:checked + label,
+  [type="radio"]:not(:checked) + label {
+    position: relative;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+    width: 100%;
+    z-index: 999999;
+    padding-top: 13px;
+    text-align: center;
+  }
+  [type="radio"]:checked + label:before,
+  [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 46px;
+    border: 2px solid #AAB2B5;
+    border-radius: 0;
+    width: 100%;
+  }
+  [type="radio"]:checked + label:after,
+  [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 100%;
+    height: 46px;
+    background: $brightsidepurple;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
@@ -1022,6 +1120,13 @@ html, body {
         line-height: 23px;
       }
     }
+    .bottom-left {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      width: 200px;
+      transform: translate(-50%, -50%);
+    }
   }
   .latest-career {
     background-image: url(../images/career-opportunities.png);
@@ -1034,6 +1139,39 @@ html, body {
     }
     .LikeToggler {
       cursor: pointer;
+    }
+  }
+}
+
+.form-steps {
+  .bg-white-steps {
+    background-color: $color_white;
+    border-radius: 32px;
+    border: 2px solid $color_Silver;
+    color: $color_Silver;
+    padding: 12px 10px;
+    margin: 0 auto;
+    max-width: 250px;
+    .step-completion {
+      background: url(../images/icon/checkmark-circle.inactive@1x.png) no-repeat left 1px;
+      padding-left: 35px;
+      background-size: 20px 20px;
+      line-height: normal;
+    }
+  }
+  .bg-white-steps.active {
+    border: 2px solid $smartgreen;
+    color: $color_black;
+  }
+  .bg-white-steps.completed {
+    border: 2px solid $smartgreen;
+    color: $color_white;
+    background-color: $smartgreen;
+    .step-completion {
+      background: url(../images/icon/checkmark-circle.active@1x.png) no-repeat left 1px;
+      padding-left: 35px;
+      background-size: 20px 20px;
+      line-height: normal;
     }
   }
 }
@@ -1108,6 +1246,68 @@ html, body {
   }
 }
 
+.releted-calculators {
+  .z-index-two {
+    z-index: 2;
+  }
+  .border-cayn {
+    border-bottom: 2px solid $smartgreen;
+  }
+  .LikeToggler {
+    cursor: pointer;
+  }
+  .paragraph-regular-14-19 {
+    min-height: 65px;
+  }
+}
+.just-for-you{
+  .few-questions{
+    max-width: 525px;
+    line-height: 27px;
+  }
+  .few-question-div{
+    border-bottom: 1px solid #E3E4E5;
+  }
+  #regForm {
+    background-color: #ffffff;
+    margin: 100px auto;
+    font-family: Raleway;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
+  }
+
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }
+  .step {
+    height: 9px;
+    width: 40px;
+    margin: 0;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 12px;
+    display: inline-block;
+    opacity: 0.5;
+    position: relative;
+    top: 10px;
+  }
+
+  .step.active {
+    background-color: $eccentricyellow;
+    opacity: 0.9;
+  }
+
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: $eccentricyellow;
+    opacity: 0.9;
+  }
+  label.more-about-label {
+    font-size: 13px;
+  }
+}
 .meet-the-bank {
   background-image: url(../images/01@1x.png);
   .z-index-two {
@@ -1117,6 +1317,45 @@ html, body {
 
 .advertisement {
 
+}
+
+.most-featured-today {
+  .owl-featured-today.owl-carousel .owl-dots.disabled, .owl-featured-today.owl-carousel .owl-nav.disabled {
+    display: block !important;
+  }
+  .owl-nav > div {
+    text-indent: -999px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 100px;
+    -webkit-transition: 0.3s all;
+    transition: 0.3s all;
+  }
+
+  .owl-nav > div:hover {
+    opacity: 0.7;
+  }
+
+  .owl-prev {
+    height: 45px;
+    width: 45px;
+    background: url(../images/icon/left@1x.png) no-repeat center;
+    left: 225px;
+    top: 160px;
+  }
+
+  .owl-next {
+    height: 45px;
+    width: 45px;
+    background: url(../images/icon/right@1x.png) no-repeat center;
+    right: 225px;
+    top: 160px;
+  }
+  .owl-most-popular.owl-carousel .owl-item img.heart-img-link {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
 }
 
 .most-popular-videos {
@@ -1158,8 +1397,51 @@ html, body {
   }
 }
 
+.owl-career-opportunities {
+  .owl-most-popular.owl-carousel .owl-dots.disabled, .owl-most-popular.owl-carousel .owl-nav.disabled {
+    display: block !important;
+  }
+  .owl-nav > div {
+    text-indent: -999px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 100px;
+    -webkit-transition: 0.3s all;
+    transition: 0.3s all;
+  }
+
+  .owl-nav > div:hover {
+    opacity: 0.7;
+  }
+
+  .owl-prev {
+    height: 45px;
+    width: 45px;
+    background: url(../images/icon/left@1x.png) no-repeat center;
+    left: -5px;
+    top: 100px;
+  }
+
+  .owl-next {
+    height: 45px;
+    width: 45px;
+    background: url(../images/icon/right@1x.png) no-repeat center;
+    right: -6px;
+    top: 100px;
+  }
+  .owl-most-popular.owl-carousel .owl-item img.heart-img-link {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+}
+
 .max-width-850 {
   max-width: 850px !important;
+}
+
+.max-width-1070 {
+  max-width: 1070px !important;
 }
 
 .most-read-articles {
@@ -1242,8 +1524,46 @@ html, body {
   }
 }
 
+.opportunities-btn {
+  background: url(../images/icon/chevron-inactive.black@1x.png) no-repeat right 6px;
+  padding-right: 21px;
+  background-size: auto;
+  line-height: normal;
+  position: relative;
+  top: 7px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.show-details-btn {
+  background: url(../images/icon/chevron-inactive.purple@1x.png) no-repeat right 6px;
+  padding-right: 21px;
+  background-size: auto;
+  line-height: normal;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.letsgo-btn-reverse {
+  background: url(../images/icon/arrow-right.purple@1x.png) no-repeat left 6px;
+  padding-left: 55px;
+  background-size: 42px 11px;
+  line-height: normal;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .border-radius-15 {
   border-radius: 15px !important;
+}
+
+.border-top-left-right-radius-15 {
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
 }
 
 .border-radius-top-bottom-15 {
@@ -1815,6 +2135,12 @@ body.overview-and-grid {
     -moz-box-shadow: none;
     border: 2px solid #AAB2B5;
   }
+  .wrapper-dropdown-3.idleEmpty.active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border: 2px solid #6b17b3;
+  }
 
   .wrapper-dropdown-3.idlefilled {
     box-shadow: none;
@@ -2107,6 +2433,239 @@ body.overview-and-grid {
       .footer-copyright-text {
         font-size: $general-font-size;
       }
+    }
+  }
+}
+
+.financial-health-guru-block {
+  position: relative;
+  .financial-health-guru-img {
+    position: absolute;
+    top: 20%;
+  }
+}
+
+.lock-img {
+  width: 25px;
+  position: relative;
+  bottom: 2px;
+}
+
+.health-guru-left {
+  position: absolute;
+  top: 90px;
+  left: -77px;
+  img {
+    transform: rotate(180deg);
+  }
+}
+
+.health-dot-left {
+  position: absolute;
+  top: 75px;
+  left: 170px;
+}
+
+.max-width-450 {
+  max-width: 450px;
+}
+
+.tellus-more-about-you {
+  label.more-about-label {
+    font-size: 13px;
+  }
+  .more-about-input {
+    padding: 0.675rem .75rem;
+    border: 2px solid #AAB2B5;
+    &:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: $brightsidepurple;
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+  .social-security-input {
+    padding-left: 35px;
+    padding-right: 100px;
+  }
+  .input-learn-more {
+    right: 12px;
+    position: absolute;
+    top: 38px;
+    z-index: 5;
+  }
+  .social-security-lock {
+    left: 10px;
+    position: absolute;
+    top: 42px;
+    z-index: 5;
+  }
+  .occupation-input {
+    padding-right: 100px;
+  }
+}
+
+.global-signup-bg {
+  background-image: url(../images/sand_wind_png.png);
+  background-repeat: no-repeat;
+  background-size: Cover;
+
+  /* Shared */
+  .loginBtn {
+    box-sizing: border-box;
+    position: relative;
+    /* width: 13em;  - apply for fixed size */
+    margin: 0.2em;
+    padding: 0 15px 0 46px;
+    border: none;
+    text-align: left;
+    line-height: 34px;
+    white-space: nowrap;
+    border-radius: 0.2em;
+    font-size: 16px;
+    color: #FFF;
+  }
+  .loginBtn:before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 34px;
+    height: 100%;
+  }
+  .loginBtn:focus {
+    outline: none;
+  }
+  .loginBtn:active {
+    box-shadow: inset 0 0 0 32px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Facebook */
+  .loginBtn--facebook {
+    background-color: #485A96;
+    background-image: linear-gradient(#485A96, #485A96);
+    font-size: 13px;
+    text-shadow: 0px 0px 3px rgba(150, 150, 150, 1);
+    -webkit-box-shadow: 0px 6px 3px -4px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0px 6px 3px -4px rgba(204, 204, 204, 1);
+    box-shadow: 0px 6px 3px -4px rgba(204, 204, 204, 1);
+  }
+  .loginBtn--facebook:before {
+    border-right: #485A96 1px solid;
+    background: url('../images/fb-btn.png') 6px 6px no-repeat;
+  }
+  .loginBtn--facebook:hover,
+  .loginBtn--facebook:focus {
+    background-color: #485A96;
+    background-image: linear-gradient(#485A96, #485A96);
+  }
+
+  /* Google */
+  .loginBtn--google {
+    background: $color_white;
+    border: 1px solid $techgrey;
+    color: #8B8B8B;
+    font-size: 13px;
+    text-shadow: 0px 0px 3px rgba(150, 150, 150, 1);
+    -webkit-box-shadow: 0px 6px 3px -4px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0px 6px 3px -4px rgba(204, 204, 204, 1);
+    box-shadow: 0px 6px 3px -4px rgba(204, 204, 204, 1);
+  }
+  .loginBtn--google:before {
+    background: url('../images/google-btn.png') 12px 12px no-repeat;
+  }
+  .loginBtn--google:hover,
+  .loginBtn--google:focus {
+    background: $color_white;
+  }
+
+  .decorated {
+    overflow: hidden;
+    text-align: center;
+  }
+  .decorated > .sign-with-mail {
+    position: relative;
+    display: inline-block;
+  }
+  .decorated > .sign-with-mail:before, .decorated > .sign-with-mail:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    border-bottom: 1px solid $color_semiblack;
+    width: 591px; /* half of limiter*/
+    margin: 0 20px;
+  }
+  .decorated > .sign-with-mail:before {
+    right: 100%;
+  }
+  .decorated > .sign-with-mail:after {
+    left: 100%;
+  }
+}
+
+.member-benifits {
+  box-sizing: border-box;
+  width: 366px;
+  border: 1px solid #AAB2B5;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  position: relative;
+  top: 100px;
+  -webkit-box-shadow: 0px 0px 10px 4px rgba(204, 204, 204, 1);
+  -moz-box-shadow: 0px 0px 10px 4px rgba(204, 204, 204, 1);
+  box-shadow: 0px 0px 10px 4px rgba(204, 204, 204, 1);
+}
+
+.pre-banking-tabs {
+  .nav-tabs {
+    border-bottom: none;
+  }
+  .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-color: transparent;
+    border-radius: .50rem;
+    background-color: $eccentricyellow;
+  }
+  .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color: transparent;
+  }
+  .nav-link {
+    padding: 0.5rem 0.5rem;
+  }
+  .icons-symbol {
+    cursor: inherit;
+    .rate-opportunity {
+      position: relative;
+      top: 3px;
+    }
+  }
+  .btn-primary-large-text {
+    padding: 0.574rem 1.8rem !important;
+  }
+  .border-whole {
+    border-bottom: 1px solid #AAB2B5;
+    border-left: 1px solid #AAB2B5;
+    border-right: 1px solid #AAB2B5;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  .border-right-apy {
+    border-right: 1px solid #AAB2B5;
+  }
+  .border-top-apy {
+    border-top: 1px solid $techgrey;
+  }
+  .financial-advisior-profile {
+    -webkit-box-shadow: 0px 0px 13px -1px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0px 0px 13px -1px rgba(204, 204, 204, 1);
+    box-shadow: 0px 0px 13px -1px rgba(204, 204, 204, 1);
+    .border-top-bottom-div {
+      border-top: 2px solid #F2F2F2;
+      border-bottom: 2px solid #F2F2F2;;
+    }
+    .border-right-div {
+      border-right: 2px solid #F2F2F2;;
     }
   }
 }
